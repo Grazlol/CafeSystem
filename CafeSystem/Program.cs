@@ -23,14 +23,21 @@ namespace CafeSystem
 
     public static class global_variables
     {
+        public static bool logged_in = false;
+        public static bool isadmin = false;
+        public static Form homepage = new prepage();
+
+
         public static Form[] Previous = new Form[0];
-        public static Form[] Next = new Form[0];
         static Form currentform = null;
 
         public static Form[] windows = {
         new CashierForm(),
         new InventoryForm(),
-        new signIn()
+        new signIn(),
+        new signup(),
+        new home(),
+        new prepage()
 
         };
 
@@ -55,11 +62,11 @@ namespace CafeSystem
                         if (currentform != null)
                         {
                             Array.Resize(ref Previous, Previous.Length + 1);
-                            Previous.Append(currentform);
+                            Previous[Previous.Length - 1] = currentform;
                         }
-                        Next = new Form[0];
-                        window.Show();
                         currentform = window;
+                        window.Show();
+                        
                         break;
                     }
 

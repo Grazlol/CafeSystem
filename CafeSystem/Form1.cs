@@ -31,7 +31,7 @@ namespace CafeSystem
             {
                 blabla.MdiParent = this;
             }
-            global_variables.nextWindow(new signIn());
+            global_variables.nextWindow(global_variables.homepage);
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -52,20 +52,20 @@ namespace CafeSystem
         private void backbutton_Click(object sender, EventArgs e)
         {
             global_variables.nextWindow(global_variables.Previous[global_variables.Previous.Length - 1]);
-            Array.Resize(ref global_variables.Next, global_variables.Next.Length + 1);
-            global_variables.Next.Append(global_variables.Previous[global_variables.Previous.Length - 1]);
-            Array.Resize(ref global_variables.Next, global_variables.Previous.Length);
+            Array.Resize(ref global_variables.Previous, global_variables.Previous.Length - 1);
+            MessageBox.Show(global_variables.Previous.Length.ToString());
         }
 
-        private void frontbutton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void _process(object sender, EventArgs e)
         {
-            frontbutton.Enabled = global_variables.Next.Length != 0;
             backbutton.Enabled = global_variables.Previous.Length != 0;
+
+            homeTab.Enabled = global_variables.logged_in;
+            adminTab.Enabled = global_variables.logged_in;
+            inventoryTab.Enabled = global_variables.logged_in;
+            cashierTab.Enabled = global_variables.logged_in;
+
 
         }
 
@@ -77,6 +77,21 @@ namespace CafeSystem
         private void cashierToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             global_variables.nextWindow(new CashierForm());
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

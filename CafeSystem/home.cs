@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace CafeSystem
 {
-    public partial class InventoryForm : Form
+    public partial class home : Form
     {
-        public InventoryForm()
+        public home()
         {
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void InventoryForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

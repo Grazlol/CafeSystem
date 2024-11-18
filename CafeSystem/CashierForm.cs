@@ -16,24 +16,8 @@ namespace CafeSystem
         {
             InitializeComponent();
         }
-        private void hide_all()
-        {
-            frappe_panel.Visible = false;
-            milktea_panel.Visible = false;
-        }
 
-        private void cold_only()
-        {
-            txt_type.Text = "Cold";
-            btn_hot.Enabled = false;
-            btn_cold.Enabled = false;
-        }
 
-        private void cold_hot()
-        {
-            btn_hot.Enabled = true;
-            btn_cold.Enabled = true;
-        }
         private void CashierForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
@@ -64,18 +48,8 @@ namespace CafeSystem
 
         }
 
-        private void menu_frappe_Click(object sender, EventArgs e)
-        {
-            hide_all();
-            frappe_panel.Show();
 
-        }
 
-        private void menu_milktea_Click(object sender, EventArgs e)
-        {
-            hide_all();
-            milktea_panel.Show();
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -92,32 +66,16 @@ namespace CafeSystem
 
         }
 
-        private void btn_wintermelon_Click(object sender, EventArgs e)
-        {
-            txt_desc.Text = "Wintermelon";
-            cold_only();
-        }
 
-        private void btn_hot_Click(object sender, EventArgs e)
-        {
-            txt_type.Text = "Hot";
-        }
+
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
             
         }
 
-        private void btn_cold_Click(object sender, EventArgs e)
-        {
-            txt_type.Text = "Cold";
-        }
 
-        private void btn_cheesecake_Click(object sender, EventArgs e)
-        {
-            txt_desc.Text = "Cheesecake";
-            cold_hot();
-        }
+
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -130,6 +88,31 @@ namespace CafeSystem
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_qty_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged_1(object sender, EventArgs e)
         {
 
         }
