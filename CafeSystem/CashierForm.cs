@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,11 @@ namespace CafeSystem
 {
     public partial class CashierForm : Form
     {
+        String itemcategory = "";
+        String itemtype = "";
+        String itemvariant = "";
+        int totalpriz = 0;
+        String[] typerange = new String[0];
         public CashierForm()
         {
             InitializeComponent();
@@ -92,9 +98,10 @@ namespace CafeSystem
 
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        private void button18_Click(object sender, EventArgs e) //PLACE ORDERSSSSS
         {
-
+            queryDB.query("delete from temp_items");
+            queryDB.cmd.ExecuteNonQuery();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -115,6 +122,191 @@ namespace CafeSystem
         private void textBox3_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void _process(object sender, EventArgs e)
+        {
+            Button[] buttonsname =
+            {
+                item_btn1,
+                item_btn2,
+                item_btn3,
+                item_btn4,
+                item_btn5,
+                item_btn6,
+                item_btn7,
+                item_btn8,
+                item_btn9,
+                item_btn10,
+                item_btn11,
+                item_btn12,
+                item_btn13,
+                item_btn14,
+                item_btn15,
+                item_btn16
+
+            };
+
+
+            int index = 0;
+            foreach (Button button in buttonsname)
+            {
+                if(index < queryDB.select("item_subtype", "item_name", itemCat.Text, "item_library").Split(',').Length)
+                {
+                    button.Text = queryDB.select("item_subtype", "item_name", itemCat.Text, "item_library").Split(',')[index];
+                    button.Visible = true;
+                } else
+                {
+                    button.Visible = false;
+                }
+                index++;
+            }
+            itemvariant = itemVar.Text;
+            desc_bar.Text = itemCat.Text + " - " + itemtype + " - " + itemvariant;
+
+
+
+            if(itemtype != "" && itemvariant != "")
+            {
+                int tempind = Array.IndexOf(queryDB.select("item_subtype", "item_name", itemCat.Text, "item_library").Split(','), itemtype);
+                totalpriz = int.Parse(txt_qty.Value.ToString()) * int.Parse(queryDB.select("item_subprices","item_name",itemCat.Text, "item_library").Split(',')[tempind]);
+            }
+            else { totalpriz = 0; };
+            
+            txt_price.Text = totalpriz.ToString();
+        }
+
+        private void CashierForm_Load(object sender, EventArgs e)
+        {
+
+            Array catrange = queryDB.selectMultiple("item_name", "item_library");
+            foreach (String i in catrange)
+            {
+                itemCat.Items.Add(i);
+            }
+            queryDB.query("delete from temp_items");
+            queryDB.cmd.ExecuteNonQuery();
+            dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
+        }
+
+        private void adorderbut_Click(object sender, EventArgs e)
+        {
+            queryDB.query("delete temp_items where item_description ='" + desc_bar.Text+"'");
+            queryDB.cmd.ExecuteNonQuery();
+            queryDB.query("insert into temp_items values ('" + desc_bar.Text + "','" + txt_qty.Value + "','" + totalpriz + "')");
+            queryDB.cmd.ExecuteNonQuery();
+            
+            dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
+        }
+
+        private void itemCat_TextChanged(object sender, EventArgs e)
+        {
+            typerange = queryDB.select("item_variants", "item_name", itemCat.Text, "item_library").Split(',');
+            itemVar.Text = "";
+            itemtype = "";
+            itemVar.Items.Clear();
+            foreach (String i in typerange)
+            {
+                itemVar.Items.Add(i);
+            }
+
+            txt_qty.Maximum = int.Parse( queryDB.select("item_amount", "item_name", itemCat.Text, "item_library"));
+
+        }
+
+        private void item_btn1_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn1.Text; // Get the text of item_btn1
+        }
+
+        private void item_btn2_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn2.Text; // Get the text of item_btn2
+        }
+
+        private void item_btn3_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn3.Text; // Get the text of item_btn3
+        }
+
+        private void item_btn4_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn4.Text; // Get the text of item_btn4
+        }
+
+        private void item_btn5_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn5.Text; // Get the text of item_btn5
+        }
+
+        private void item_btn6_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn6.Text; // Get the text of item_btn6
+        }
+
+        private void item_btn7_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn7.Text; // Get the text of item_btn7
+        }
+
+        private void item_btn8_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn8.Text; // Get the text of item_btn8
+        }
+
+        private void item_btn9_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn9.Text; // Get the text of item_btn9
+        }
+
+        private void item_btn10_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn10.Text; // Get the text of item_btn10
+        }
+
+        private void item_btn11_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn11.Text; // Get the text of item_btn11
+        }
+
+        private void item_btn12_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn12.Text; // Get the text of item_btn12
+        }
+
+        private void item_btn13_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn13.Text; // Get the text of item_btn13
+        }
+
+        private void item_btn14_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn14.Text; // Get the text of item_btn14
+        }
+
+        private void item_btn15_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn15.Text; // Get the text of item_btn15
+        }
+
+        private void item_btn16_Click(object sender, EventArgs e)
+        {
+            itemtype = item_btn16.Text; // Get the text of item_btn16
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            queryDB.query("delete from temp_items");
+            queryDB.cmd.ExecuteNonQuery();
+            dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
+
+        }
+
+        private void reorderbut_Click(object sender, EventArgs e)
+        {
+            queryDB.query("delete from temp_items where item_description = '" + desc_bar.Text + "'");
+            queryDB.cmd.ExecuteNonQuery();
+            dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
         }
     }
 }

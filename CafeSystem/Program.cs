@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CafeSystem
 {
@@ -23,8 +25,8 @@ namespace CafeSystem
 
     public static class global_variables
     {
-        public static bool logged_in = false;
-        public static bool isadmin = false;
+        public static String employee_position = "";
+        public static String current_user_id = "";
         public static Form homepage = new prepage();
 
 
@@ -37,7 +39,8 @@ namespace CafeSystem
         new signIn(),
         new signup(),
         new home(),
-        new prepage()
+        new prepage(),
+        new Admin()
 
         };
 
@@ -47,31 +50,30 @@ namespace CafeSystem
 
         public static void nextWindow(Form windowtype)
         {
-
             Form tempform = windowtype;
-            foreach (Form window in windows)
-            {
-                window.Hide();
-            }
-            foreach (Form window in windows)
-            {
-                if (tempform != null)
-                {
-                    if (window.GetType().ToString() == tempform.GetType().ToString())
+                    foreach (Form window in windows)
                     {
-                        if (currentform != null)
-                        {
-                            Array.Resize(ref Previous, Previous.Length + 1);
-                            Previous[Previous.Length - 1] = currentform;
-                        }
-                        currentform = window;
-                        window.Show();
-                        
-                        break;
+                        window.Hide();
                     }
+                    foreach (Form window in windows)
+                    {
+                        if (tempform != null)
+                        {
+                            if (window.GetType().ToString() == tempform.GetType().ToString())
+                            {
+                                if (currentform != null)
+                                {
+                                    Array.Resize(ref Previous, Previous.Length + 1);
+                                    Previous[Previous.Length - 1] = currentform;
+                                }
+                                currentform = window;
+                                window.Show();
 
-                }
-            }
+                                break;
+                            }
+
+                        }
+                    }
         }
 
     }
@@ -79,13 +81,13 @@ namespace CafeSystem
     public static class queryDB
     {
         //PUT THE CONNECTOR PORT HERE AS A BY RIGHT CLICKING THE DATABASE AND TAKE THE DATAPORT FORM THE PROPERITES
-        static string database_properties = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Spatz\\source\\repos\\Testing dotnet\\Testing dotnet\\Database1.mdf\";Integrated Security=True";
+        static string database_properties = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Spatz\\source\\repos\\CafeSystem\\CafeSystem\\cafe_persistent.mdf;Integrated Security=True";
         //PLS DO THIS OR ELSE PROGRAM WILL FAIL TO RUN DUMB SKIBIDI GYATT
 
 
 
-        static SqlCommand cmd;//DONT TOUCH THIS BTW
-        static string Last_Created_ID = "";
+        public static SqlCommand cmd;//DONT TOUCH THIS BTW
+        public static string Last_Created_ID = "";
         static SqlConnection con = new SqlConnection(database_properties);
         public static void query(string SQLCOMMAND)//Performs a commmand through a string
         {
@@ -167,6 +169,15 @@ namespace CafeSystem
                     break;
                 }
             }
+        }
+
+        public static DataTable selectTable(string Query)
+        {
+            query(Query);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
         }
     }
 }

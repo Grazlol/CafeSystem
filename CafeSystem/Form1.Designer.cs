@@ -35,18 +35,19 @@
             this.inventoryTab = new System.Windows.Forms.ToolStripMenuItem();
             this.adminTab = new System.Windows.Forms.ToolStripMenuItem();
             this.cashierTab = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.process = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cashier_position = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cashier_name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.physics_process = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -69,6 +70,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1267, 105);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // backbutton
             // 
@@ -115,6 +117,7 @@
             this.adminTab.Name = "adminTab";
             this.adminTab.Size = new System.Drawing.Size(107, 97);
             this.adminTab.Text = "Admin";
+            this.adminTab.Click += new System.EventHandler(this.adminTab_Click);
             // 
             // cashierTab
             // 
@@ -128,23 +131,23 @@
             this.cashierTab.Text = "Cashier";
             this.cashierTab.Click += new System.EventHandler(this.cashierToolStripMenuItem2_Click);
             // 
-            // timer1
+            // process
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 16;
-            this.timer1.Tick += new System.EventHandler(this._process);
+            this.process.Enabled = true;
+            this.process.Interval = 33;
+            this.process.Tick += new System.EventHandler(this._process);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.cashier_position);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.cashier_name);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Location = new System.Drawing.Point(621, 0);
@@ -152,16 +155,39 @@
             this.panel3.Size = new System.Drawing.Size(646, 105);
             this.panel3.TabIndex = 7;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(444, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 25);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "--";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label3.Location = new System.Drawing.Point(444, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 25);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "00:00:00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(320, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 25);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Date Time:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // cashier_position
+            // 
+            this.cashier_position.AutoSize = true;
+            this.cashier_position.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashier_position.ForeColor = System.Drawing.Color.MediumBlue;
+            this.cashier_position.Location = new System.Drawing.Point(444, 28);
+            this.cashier_position.Name = "cashier_position";
+            this.cashier_position.Size = new System.Drawing.Size(26, 25);
+            this.cashier_position.TabIndex = 13;
+            this.cashier_position.Text = "--";
             // 
             // label2
             // 
@@ -197,17 +223,39 @@
             this.label14.TabIndex = 10;
             this.label14.Text = "Checked-in:";
             // 
-            // label7
+            // pictureBox2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label7.Location = new System.Drawing.Point(444, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 25);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "--";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox2.Image = global::CafeSystem.Properties.Resources.blank_dp;
+            this.pictureBox2.Location = new System.Drawing.Point(175, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(105, 99);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // cashier_name
+            // 
+            this.cashier_name.AutoSize = true;
+            this.cashier_name.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashier_name.ForeColor = System.Drawing.Color.MediumBlue;
+            this.cashier_name.Location = new System.Drawing.Point(444, 3);
+            this.cashier_name.Name = "cashier_name";
+            this.cashier_name.Size = new System.Drawing.Size(26, 25);
+            this.cashier_name.TabIndex = 6;
+            this.cashier_name.Text = "--";
+            this.cashier_name.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
+            this.pictureBox1.Image = global::CafeSystem.Properties.Resources.beginnings_cafe;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(165, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -220,50 +268,11 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Cashier Name:";
             // 
-            // label3
+            // physics_process
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label3.Location = new System.Drawing.Point(444, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 25);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "00:00:00";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(320, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 25);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Date Time:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox2.Image = global::CafeSystem.Properties.Resources.blank_dp;
-            this.pictureBox2.Location = new System.Drawing.Point(175, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(105, 99);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightGray;
-            this.pictureBox1.Image = global::CafeSystem.Properties.Resources.beginnings_cafe;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.physics_process.Enabled = true;
+            this.physics_process.Interval = 1000;
+            this.physics_process.Tick += new System.EventHandler(this._physics_process);
             // 
             // LoginForm
             // 
@@ -296,18 +305,19 @@
         private System.Windows.Forms.ToolStripMenuItem inventoryTab;
         private System.Windows.Forms.ToolStripMenuItem adminTab;
         private System.Windows.Forms.ToolStripMenuItem cashierTab;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer process;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label cashier_name;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label cashier_position;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer physics_process;
     }
 }
 

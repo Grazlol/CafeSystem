@@ -36,5 +36,26 @@ namespace CafeSystem
         {
 
         }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            bool logged_in = false;
+
+            if(queryDB.select("password","email",emBox.Text,"employee_accounts") == pwBox.Text)
+            {
+                logged_in = true;
+            }
+
+
+                if (logged_in) {
+                global_variables.employee_position = queryDB.select("position", "email", emBox.Text, "employee_accounts");
+                global_variables.current_user_id = queryDB.select("id", "email", emBox.Text, "employee_accounts");
+                global_variables.homepage = new home();
+                global_variables.nextWindow(global_variables.homepage);
+                global_variables.Previous = new Form[0];
+                
+            }
+            
+        }
     }
 }

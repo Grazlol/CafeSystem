@@ -89,6 +89,7 @@
             this.Controls.Add(this.panel6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "prepage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "prepage";
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

@@ -42,42 +42,37 @@
             this.item_btn12 = new System.Windows.Forms.Button();
             this.item_btn11 = new System.Windows.Forms.Button();
             this.item_btn10 = new System.Windows.Forms.Button();
-            this.item_btn09 = new System.Windows.Forms.Button();
-            this.item_btn08 = new System.Windows.Forms.Button();
-            this.item_btn07 = new System.Windows.Forms.Button();
-            this.item_btn06 = new System.Windows.Forms.Button();
-            this.item_btn05 = new System.Windows.Forms.Button();
-            this.item_btn04 = new System.Windows.Forms.Button();
-            this.item_btn03 = new System.Windows.Forms.Button();
-            this.item_btn02 = new System.Windows.Forms.Button();
-            this.item_btn01 = new System.Windows.Forms.Button();
+            this.item_btn9 = new System.Windows.Forms.Button();
+            this.item_btn8 = new System.Windows.Forms.Button();
+            this.item_btn7 = new System.Windows.Forms.Button();
+            this.item_btn6 = new System.Windows.Forms.Button();
+            this.item_btn5 = new System.Windows.Forms.Button();
+            this.item_btn4 = new System.Windows.Forms.Button();
+            this.item_btn3 = new System.Windows.Forms.Button();
+            this.item_btn2 = new System.Windows.Forms.Button();
+            this.item_btn1 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_price = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_price = new System.Windows.Forms.TextBox();
-            this.button17 = new System.Windows.Forms.Button();
+            this.desc_bar = new System.Windows.Forms.TextBox();
             this.txt_qty = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.button19 = new System.Windows.Forms.Button();
+            this.adorderbut = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
-            this.itemreceipt = new System.Windows.Forms.DataGridView();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.reorderbut = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.milktea_panel.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemreceipt)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -134,6 +129,7 @@
             this.itemCat.Name = "itemCat";
             this.itemCat.Size = new System.Drawing.Size(257, 39);
             this.itemCat.TabIndex = 7;
+            this.itemCat.TextChanged += new System.EventHandler(this.itemCat_TextChanged);
             // 
             // milktea_panel
             // 
@@ -145,15 +141,15 @@
             this.milktea_panel.Controls.Add(this.item_btn12);
             this.milktea_panel.Controls.Add(this.item_btn11);
             this.milktea_panel.Controls.Add(this.item_btn10);
-            this.milktea_panel.Controls.Add(this.item_btn09);
-            this.milktea_panel.Controls.Add(this.item_btn08);
-            this.milktea_panel.Controls.Add(this.item_btn07);
-            this.milktea_panel.Controls.Add(this.item_btn06);
-            this.milktea_panel.Controls.Add(this.item_btn05);
-            this.milktea_panel.Controls.Add(this.item_btn04);
-            this.milktea_panel.Controls.Add(this.item_btn03);
-            this.milktea_panel.Controls.Add(this.item_btn02);
-            this.milktea_panel.Controls.Add(this.item_btn01);
+            this.milktea_panel.Controls.Add(this.item_btn9);
+            this.milktea_panel.Controls.Add(this.item_btn8);
+            this.milktea_panel.Controls.Add(this.item_btn7);
+            this.milktea_panel.Controls.Add(this.item_btn6);
+            this.milktea_panel.Controls.Add(this.item_btn5);
+            this.milktea_panel.Controls.Add(this.item_btn4);
+            this.milktea_panel.Controls.Add(this.item_btn3);
+            this.milktea_panel.Controls.Add(this.item_btn2);
+            this.milktea_panel.Controls.Add(this.item_btn1);
             this.milktea_panel.Location = new System.Drawing.Point(16, 145);
             this.milktea_panel.Name = "milktea_panel";
             this.milktea_panel.Size = new System.Drawing.Size(492, 275);
@@ -168,6 +164,7 @@
             this.item_btn16.Size = new System.Drawing.Size(113, 56);
             this.item_btn16.TabIndex = 15;
             this.item_btn16.UseVisualStyleBackColor = true;
+            this.item_btn16.Click += new System.EventHandler(this.item_btn16_Click);
             // 
             // item_btn15
             // 
@@ -177,6 +174,7 @@
             this.item_btn15.Size = new System.Drawing.Size(113, 56);
             this.item_btn15.TabIndex = 14;
             this.item_btn15.UseVisualStyleBackColor = true;
+            this.item_btn15.Click += new System.EventHandler(this.item_btn15_Click);
             // 
             // item_btn14
             // 
@@ -186,6 +184,7 @@
             this.item_btn14.Size = new System.Drawing.Size(113, 56);
             this.item_btn14.TabIndex = 13;
             this.item_btn14.UseVisualStyleBackColor = true;
+            this.item_btn14.Click += new System.EventHandler(this.item_btn14_Click);
             // 
             // item_btn13
             // 
@@ -195,6 +194,7 @@
             this.item_btn13.Size = new System.Drawing.Size(113, 56);
             this.item_btn13.TabIndex = 12;
             this.item_btn13.UseVisualStyleBackColor = true;
+            this.item_btn13.Click += new System.EventHandler(this.item_btn13_Click);
             // 
             // item_btn12
             // 
@@ -204,6 +204,7 @@
             this.item_btn12.Size = new System.Drawing.Size(113, 56);
             this.item_btn12.TabIndex = 11;
             this.item_btn12.UseVisualStyleBackColor = true;
+            this.item_btn12.Click += new System.EventHandler(this.item_btn12_Click);
             // 
             // item_btn11
             // 
@@ -213,6 +214,7 @@
             this.item_btn11.Size = new System.Drawing.Size(113, 56);
             this.item_btn11.TabIndex = 10;
             this.item_btn11.UseVisualStyleBackColor = true;
+            this.item_btn11.Click += new System.EventHandler(this.item_btn11_Click);
             // 
             // item_btn10
             // 
@@ -222,114 +224,124 @@
             this.item_btn10.Size = new System.Drawing.Size(113, 56);
             this.item_btn10.TabIndex = 9;
             this.item_btn10.UseVisualStyleBackColor = true;
+            this.item_btn10.Click += new System.EventHandler(this.item_btn10_Click);
             // 
-            // item_btn09
+            // item_btn9
             // 
-            this.item_btn09.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn09.Location = new System.Drawing.Point(12, 125);
-            this.item_btn09.Name = "item_btn09";
-            this.item_btn09.Size = new System.Drawing.Size(113, 56);
-            this.item_btn09.TabIndex = 8;
-            this.item_btn09.UseVisualStyleBackColor = true;
+            this.item_btn9.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn9.Location = new System.Drawing.Point(12, 125);
+            this.item_btn9.Name = "item_btn9";
+            this.item_btn9.Size = new System.Drawing.Size(113, 56);
+            this.item_btn9.TabIndex = 8;
+            this.item_btn9.UseVisualStyleBackColor = true;
+            this.item_btn9.Click += new System.EventHandler(this.item_btn9_Click);
             // 
-            // item_btn08
+            // item_btn8
             // 
-            this.item_btn08.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn08.Location = new System.Drawing.Point(370, 63);
-            this.item_btn08.Name = "item_btn08";
-            this.item_btn08.Size = new System.Drawing.Size(113, 56);
-            this.item_btn08.TabIndex = 7;
-            this.item_btn08.UseVisualStyleBackColor = true;
+            this.item_btn8.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn8.Location = new System.Drawing.Point(370, 63);
+            this.item_btn8.Name = "item_btn8";
+            this.item_btn8.Size = new System.Drawing.Size(113, 56);
+            this.item_btn8.TabIndex = 7;
+            this.item_btn8.UseVisualStyleBackColor = true;
+            this.item_btn8.Click += new System.EventHandler(this.item_btn8_Click);
             // 
-            // item_btn07
+            // item_btn7
             // 
-            this.item_btn07.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn07.Location = new System.Drawing.Point(251, 63);
-            this.item_btn07.Name = "item_btn07";
-            this.item_btn07.Size = new System.Drawing.Size(113, 56);
-            this.item_btn07.TabIndex = 6;
-            this.item_btn07.UseVisualStyleBackColor = true;
+            this.item_btn7.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn7.Location = new System.Drawing.Point(251, 63);
+            this.item_btn7.Name = "item_btn7";
+            this.item_btn7.Size = new System.Drawing.Size(113, 56);
+            this.item_btn7.TabIndex = 6;
+            this.item_btn7.UseVisualStyleBackColor = true;
+            this.item_btn7.Click += new System.EventHandler(this.item_btn7_Click);
             // 
-            // item_btn06
+            // item_btn6
             // 
-            this.item_btn06.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn06.Location = new System.Drawing.Point(131, 63);
-            this.item_btn06.Name = "item_btn06";
-            this.item_btn06.Size = new System.Drawing.Size(113, 56);
-            this.item_btn06.TabIndex = 5;
-            this.item_btn06.UseVisualStyleBackColor = true;
+            this.item_btn6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn6.Location = new System.Drawing.Point(131, 63);
+            this.item_btn6.Name = "item_btn6";
+            this.item_btn6.Size = new System.Drawing.Size(113, 56);
+            this.item_btn6.TabIndex = 5;
+            this.item_btn6.UseVisualStyleBackColor = true;
+            this.item_btn6.Click += new System.EventHandler(this.item_btn6_Click);
             // 
-            // item_btn05
+            // item_btn5
             // 
-            this.item_btn05.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn05.Location = new System.Drawing.Point(12, 63);
-            this.item_btn05.Name = "item_btn05";
-            this.item_btn05.Size = new System.Drawing.Size(113, 56);
-            this.item_btn05.TabIndex = 4;
-            this.item_btn05.UseVisualStyleBackColor = true;
+            this.item_btn5.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn5.Location = new System.Drawing.Point(12, 63);
+            this.item_btn5.Name = "item_btn5";
+            this.item_btn5.Size = new System.Drawing.Size(113, 56);
+            this.item_btn5.TabIndex = 4;
+            this.item_btn5.UseVisualStyleBackColor = true;
+            this.item_btn5.Click += new System.EventHandler(this.item_btn5_Click);
             // 
-            // item_btn04
+            // item_btn4
             // 
-            this.item_btn04.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn04.Location = new System.Drawing.Point(370, 1);
-            this.item_btn04.Name = "item_btn04";
-            this.item_btn04.Size = new System.Drawing.Size(113, 56);
-            this.item_btn04.TabIndex = 3;
-            this.item_btn04.UseVisualStyleBackColor = true;
+            this.item_btn4.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn4.Location = new System.Drawing.Point(370, 1);
+            this.item_btn4.Name = "item_btn4";
+            this.item_btn4.Size = new System.Drawing.Size(113, 56);
+            this.item_btn4.TabIndex = 3;
+            this.item_btn4.UseVisualStyleBackColor = true;
+            this.item_btn4.Click += new System.EventHandler(this.item_btn4_Click);
             // 
-            // item_btn03
+            // item_btn3
             // 
-            this.item_btn03.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn03.Location = new System.Drawing.Point(251, 1);
-            this.item_btn03.Name = "item_btn03";
-            this.item_btn03.Size = new System.Drawing.Size(113, 56);
-            this.item_btn03.TabIndex = 2;
-            this.item_btn03.UseVisualStyleBackColor = true;
+            this.item_btn3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn3.Location = new System.Drawing.Point(251, 3);
+            this.item_btn3.Name = "item_btn3";
+            this.item_btn3.Size = new System.Drawing.Size(113, 56);
+            this.item_btn3.TabIndex = 2;
+            this.item_btn3.UseVisualStyleBackColor = true;
+            this.item_btn3.Click += new System.EventHandler(this.item_btn3_Click);
             // 
-            // item_btn02
+            // item_btn2
             // 
-            this.item_btn02.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn02.Location = new System.Drawing.Point(132, 1);
-            this.item_btn02.Name = "item_btn02";
-            this.item_btn02.Size = new System.Drawing.Size(113, 56);
-            this.item_btn02.TabIndex = 1;
-            this.item_btn02.UseVisualStyleBackColor = true;
+            this.item_btn2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn2.Location = new System.Drawing.Point(132, 1);
+            this.item_btn2.Name = "item_btn2";
+            this.item_btn2.Size = new System.Drawing.Size(113, 56);
+            this.item_btn2.TabIndex = 1;
+            this.item_btn2.UseVisualStyleBackColor = true;
+            this.item_btn2.Click += new System.EventHandler(this.item_btn2_Click);
             // 
-            // item_btn01
+            // item_btn1
             // 
-            this.item_btn01.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.item_btn01.Location = new System.Drawing.Point(12, 1);
-            this.item_btn01.Name = "item_btn01";
-            this.item_btn01.Size = new System.Drawing.Size(113, 56);
-            this.item_btn01.TabIndex = 0;
-            this.item_btn01.UseVisualStyleBackColor = true;
+            this.item_btn1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.item_btn1.Location = new System.Drawing.Point(12, 1);
+            this.item_btn1.Name = "item_btn1";
+            this.item_btn1.Size = new System.Drawing.Size(113, 56);
+            this.item_btn1.TabIndex = 0;
+            this.item_btn1.UseVisualStyleBackColor = true;
+            this.item_btn1.Click += new System.EventHandler(this.item_btn1_Click);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel6.Controls.Add(this.textBox3);
+            this.panel6.Controls.Add(this.txt_price);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.txt_price);
-            this.panel6.Controls.Add(this.button17);
+            this.panel6.Controls.Add(this.desc_bar);
+            this.panel6.Controls.Add(this.reorderbut);
             this.panel6.Controls.Add(this.txt_qty);
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.button19);
+            this.panel6.Controls.Add(this.adorderbut);
             this.panel6.Location = new System.Drawing.Point(13, 426);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(492, 114);
             this.panel6.TabIndex = 5;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
-            // textBox3
+            // txt_price
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(80, 75);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(110, 35);
-            this.textBox3.TabIndex = 24;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
+            this.txt_price.Enabled = false;
+            this.txt_price.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_price.Location = new System.Drawing.Point(80, 75);
+            this.txt_price.Name = "txt_price";
+            this.txt_price.Size = new System.Drawing.Size(110, 35);
+            this.txt_price.TabIndex = 24;
+            this.txt_price.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
             // 
             // label2
             // 
@@ -353,26 +365,15 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Desc:";
             // 
-            // txt_price
+            // desc_bar
             // 
-            this.txt_price.Enabled = false;
-            this.txt_price.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_price.Location = new System.Drawing.Point(80, 5);
-            this.txt_price.Name = "txt_price";
-            this.txt_price.Size = new System.Drawing.Size(403, 35);
-            this.txt_price.TabIndex = 21;
-            this.txt_price.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // button17
-            // 
-            this.button17.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.ForeColor = System.Drawing.Color.Crimson;
-            this.button17.Location = new System.Drawing.Point(347, 73);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(136, 34);
-            this.button17.TabIndex = 17;
-            this.button17.Text = "REMOVE ORDER";
-            this.button17.UseVisualStyleBackColor = true;
+            this.desc_bar.Enabled = false;
+            this.desc_bar.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desc_bar.Location = new System.Drawing.Point(80, 5);
+            this.desc_bar.Name = "desc_bar";
+            this.desc_bar.Size = new System.Drawing.Size(403, 35);
+            this.desc_bar.TabIndex = 21;
+            this.desc_bar.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txt_qty
             // 
@@ -405,16 +406,17 @@
             this.label10.Text = "Quantity:";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // button19
+            // adorderbut
             // 
-            this.button19.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.ForeColor = System.Drawing.Color.ForestGreen;
-            this.button19.Location = new System.Drawing.Point(347, 41);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(136, 34);
-            this.button19.TabIndex = 11;
-            this.button19.Text = "ADD ORDER";
-            this.button19.UseVisualStyleBackColor = true;
+            this.adorderbut.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adorderbut.ForeColor = System.Drawing.Color.ForestGreen;
+            this.adorderbut.Location = new System.Drawing.Point(347, 41);
+            this.adorderbut.Name = "adorderbut";
+            this.adorderbut.Size = new System.Drawing.Size(136, 34);
+            this.adorderbut.TabIndex = 11;
+            this.adorderbut.Text = "ADD ORDER";
+            this.adorderbut.UseVisualStyleBackColor = true;
+            this.adorderbut.Click += new System.EventHandler(this.adorderbut_Click);
             // 
             // button18
             // 
@@ -436,82 +438,24 @@
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(130, 34);
             this.button34.TabIndex = 18;
-            this.button34.Text = "CANCEL ORDER";
+            this.button34.Text = "RESET ORDER";
             this.button34.UseVisualStyleBackColor = true;
-            // 
-            // itemreceipt
-            // 
-            this.itemreceipt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemreceipt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Quantity,
-            this.Description,
-            this.Price});
-            this.itemreceipt.Location = new System.Drawing.Point(521, 78);
-            this.itemreceipt.Name = "itemreceipt";
-            this.itemreceipt.Size = new System.Drawing.Size(567, 434);
-            this.itemreceipt.TabIndex = 19;
-            this.itemreceipt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Quantity.Frozen = true;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 71;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Description.Frozen = true;
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.Width = 85;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 33;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox1.Location = new System.Drawing.Point(134, 6);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(136, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 24);
+            this.textBox1.Size = new System.Drawing.Size(233, 35);
             this.textBox1.TabIndex = 6;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(7, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 17);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Customer No.:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox2.Location = new System.Drawing.Point(134, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 24);
-            this.textBox2.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(7, 10);
+            this.label4.Location = new System.Drawing.Point(9, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 17);
             this.label4.TabIndex = 4;
@@ -522,13 +466,37 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Location = new System.Drawing.Point(521, -1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(584, 73);
             this.panel4.TabIndex = 7;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 33;
+            this.timer1.Tick += new System.EventHandler(this._process);
+            // 
+            // reorderbut
+            // 
+            this.reorderbut.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reorderbut.ForeColor = System.Drawing.Color.Crimson;
+            this.reorderbut.Location = new System.Drawing.Point(347, 73);
+            this.reorderbut.Name = "reorderbut";
+            this.reorderbut.Size = new System.Drawing.Size(136, 34);
+            this.reorderbut.TabIndex = 17;
+            this.reorderbut.Text = "REMOVE ORDER";
+            this.reorderbut.UseVisualStyleBackColor = true;
+            this.reorderbut.Click += new System.EventHandler(this.reorderbut_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(521, 78);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(567, 435);
+            this.dataGridView1.TabIndex = 19;
             // 
             // CashierForm
             // 
@@ -536,7 +504,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1100, 557);
-            this.Controls.Add(this.itemreceipt);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button34);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.panel4);
@@ -546,15 +514,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CashierForm_FormClosing);
+            this.Load += new System.EventHandler(this.CashierForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.milktea_panel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemreceipt)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,7 +533,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button adorderbut;
         private System.Windows.Forms.NumericUpDown txt_qty;
         private System.Windows.Forms.Panel milktea_panel;
         private System.Windows.Forms.Button item_btn16;
@@ -574,35 +543,30 @@
         private System.Windows.Forms.Button item_btn12;
         private System.Windows.Forms.Button item_btn11;
         private System.Windows.Forms.Button item_btn10;
-        private System.Windows.Forms.Button item_btn09;
-        private System.Windows.Forms.Button item_btn08;
-        private System.Windows.Forms.Button item_btn07;
-        private System.Windows.Forms.Button item_btn06;
-        private System.Windows.Forms.Button item_btn05;
-        private System.Windows.Forms.Button item_btn04;
-        private System.Windows.Forms.Button item_btn03;
-        private System.Windows.Forms.Button item_btn02;
-        private System.Windows.Forms.Button item_btn01;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button item_btn9;
+        private System.Windows.Forms.Button item_btn8;
+        private System.Windows.Forms.Button item_btn7;
+        private System.Windows.Forms.Button item_btn6;
+        private System.Windows.Forms.Button item_btn5;
+        private System.Windows.Forms.Button item_btn4;
+        private System.Windows.Forms.Button item_btn3;
+        private System.Windows.Forms.Button item_btn2;
+        private System.Windows.Forms.Button item_btn1;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button34;
-        private System.Windows.Forms.TextBox txt_price;
-        private System.Windows.Forms.DataGridView itemreceipt;
+        private System.Windows.Forms.TextBox desc_bar;
         private System.Windows.Forms.ComboBox itemCat;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_price;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox itemVar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button reorderbut;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

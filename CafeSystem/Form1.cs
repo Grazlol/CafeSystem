@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -46,32 +47,49 @@ namespace CafeSystem
 
         private void cashierToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            global_variables.nextWindow(new InventoryForm());
         }
 
         private void backbutton_Click(object sender, EventArgs e)
         {
+            Form[] formus = new Form[global_variables.Previous.Length - 1];
             global_variables.nextWindow(global_variables.Previous[global_variables.Previous.Length - 1]);
-            Array.Resize(ref global_variables.Previous, global_variables.Previous.Length - 1);
-            MessageBox.Show(global_variables.Previous.Length.ToString());
+            
+            for(int i = 0; i < formus.Length; i++)
+            {
+                formus[i] = global_variables.Previous[i];
+            }
+            global_variables.Previous = new Form[formus.Length];
+            global_variables.Previous = formus;
         }
 
 
         private void _process(object sender, EventArgs e)
         {
             backbutton.Enabled = global_variables.Previous.Length != 0;
+            switch (global_variables.employee_position)
+            {
+                case "Cashier":
+                    cashierTab.Enabled = true;
+                    break;
+                case "Inventory Manager":
+                    inventoryTab.Enabled = true;
+                    break;
+                case "Admin":
+                    inventoryTab.Enabled = true;
+                    cashierTab.Enabled = true;
+                    //adminTab.Enabled = true;
+                    break;
+            }
 
-            homeTab.Enabled = global_variables.logged_in;
-            adminTab.Enabled = global_variables.logged_in;
-            inventoryTab.Enabled = global_variables.logged_in;
-            cashierTab.Enabled = global_variables.logged_in;
-
+            cashier_name.Text = queryDB.select("name", "id", global_variables.current_user_id, "employee_accounts");
+            cashier_position.Text = queryDB.select("position", "id", global_variables.current_user_id, "employee_accounts");
 
         }
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            global_variables.nextWindow(new signIn());
+            global_variables.nextWindow(global_variables.homepage);
         }
 
         private void cashierToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -92,6 +110,21 @@ namespace CafeSystem
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void _physics_process(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void adminTab_Click(object sender, EventArgs e)
+        {
+            global_variables.nextWindow(new Admin());
         }
     }
 }
