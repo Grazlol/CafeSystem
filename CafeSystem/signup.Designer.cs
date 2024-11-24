@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel6 = new System.Windows.Forms.Panel();
+            this.genbox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.emposbox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -49,8 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.email_box = new System.Windows.Forms.TextBox();
             this.button19 = new System.Windows.Forms.Button();
-            this.genbox = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -85,13 +85,39 @@
             this.panel6.Size = new System.Drawing.Size(1076, 533);
             this.panel6.TabIndex = 7;
             // 
+            // genbox
+            // 
+            this.genbox.Font = new System.Drawing.Font("Arial Narrow", 18F);
+            this.genbox.FormattingEnabled = true;
+            this.genbox.Items.AddRange(new object[] {
+            "MALE",
+            "FEMALE",
+            "OTHER"});
+            this.genbox.Location = new System.Drawing.Point(166, 403);
+            this.genbox.Name = "genbox";
+            this.genbox.Size = new System.Drawing.Size(379, 37);
+            this.genbox.TabIndex = 44;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(85, 415);
+            this.label10.Name = "label10";
+            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label10.Size = new System.Drawing.Size(67, 17);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "GENDER";
+            // 
             // emposbox
             // 
             this.emposbox.Font = new System.Drawing.Font("Arial Narrow", 18F);
             this.emposbox.FormattingEnabled = true;
             this.emposbox.Items.AddRange(new object[] {
             "Cashier",
-            "Inventory Manager"});
+            "Inventory Manager",
+            "Admin"});
             this.emposbox.Location = new System.Drawing.Point(166, 360);
             this.emposbox.Name = "emposbox";
             this.emposbox.Size = new System.Drawing.Size(379, 37);
@@ -290,31 +316,6 @@
             this.button19.Text = "REGISTER";
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // genbox
-            // 
-            this.genbox.Font = new System.Drawing.Font("Arial Narrow", 18F);
-            this.genbox.FormattingEnabled = true;
-            this.genbox.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE",
-            "OTHER"});
-            this.genbox.Location = new System.Drawing.Point(166, 403);
-            this.genbox.Name = "genbox";
-            this.genbox.Size = new System.Drawing.Size(379, 37);
-            this.genbox.TabIndex = 44;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(85, 415);
-            this.label10.Name = "label10";
-            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(67, 17);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "GENDER";
             // 
             // signup
             // 

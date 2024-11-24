@@ -100,8 +100,19 @@ namespace CafeSystem
 
         private void button18_Click(object sender, EventArgs e) //PLACE ORDERSSSSS
         {
+            int index = 0;
+            foreach(String element in queryDB.selectMultiple("item_description", "temp_items"))
+            {
+                int temp_amount = int.Parse( queryDB.select("item_amount", "item_name", queryDB.select("category", "item_description", element, "temp_items"), "item_library"));
+                temp_amount = temp_amount - int.Parse(queryDB.select("qty", "item_description", element, "temp_items"));
+
+                queryDB.update(temp_amount.ToString(), "item_amount", "item_name", queryDB.select("category", "item_description", element, "temp_items"), "item_library");
+            }
+
             queryDB.query("delete from temp_items");
             queryDB.cmd.ExecuteNonQuery();
+            dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
+            MessageBox.Show("Order Performed!");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -193,7 +204,7 @@ namespace CafeSystem
         {
             queryDB.query("delete temp_items where item_description ='" + desc_bar.Text+"'");
             queryDB.cmd.ExecuteNonQuery();
-            queryDB.query("insert into temp_items values ('" + desc_bar.Text + "','" + txt_qty.Value + "','" + totalpriz + "')");
+            queryDB.query("insert into temp_items values ('" + desc_bar.Text + "','" + txt_qty.Value + "','" + totalpriz + "','" + itemCat.Text+"')");
             queryDB.cmd.ExecuteNonQuery();
             
             dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
