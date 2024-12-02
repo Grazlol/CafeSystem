@@ -84,6 +84,7 @@ namespace CafeSystem
 
             cashier_name.Text = queryDB.select("name", "id", global_variables.current_user_id, "employee_accounts");
             cashier_position.Text = queryDB.select("position", "id", global_variables.current_user_id, "employee_accounts");
+            lbl_checkedIn.Text = global_variables.str_checkedIn;
 
         }
 
@@ -114,7 +115,7 @@ namespace CafeSystem
 
         private void _physics_process(object sender, EventArgs e)
         {
-
+            txt_dtime.Text = DateTime.Now.ToString();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -125,6 +126,11 @@ namespace CafeSystem
         private void adminTab_Click(object sender, EventArgs e)
         {
             global_variables.nextWindow(new Admin());
+        }
+
+        private void date_time_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

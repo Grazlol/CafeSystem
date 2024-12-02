@@ -18,6 +18,7 @@ namespace CafeSystem
         String itemvariant = "";
         int totalpriz = 0;
         String[] typerange = new String[0];
+        double amountPaying = 0, changePay, changeTotal;
         public CashierForm()
         {
             InitializeComponent();
@@ -98,21 +99,34 @@ namespace CafeSystem
 
         }
 
-        private void button18_Click(object sender, EventArgs e) //PLACE ORDERSSSSS
+        private void button18_Click(object sender, EventArgs e) //PLACE ORDERSSsss
         {
-            int index = 0;
-            foreach(String element in queryDB.selectMultiple("item_description", "temp_items"))
+            if (txt_customerName == null)
             {
-                int temp_amount = int.Parse( queryDB.select("item_amount", "item_name", queryDB.select("category", "item_description", element, "temp_items"), "item_library"));
-                temp_amount = temp_amount - int.Parse(queryDB.select("qty", "item_description", element, "temp_items"));
-
-                queryDB.update(temp_amount.ToString(), "item_amount", "item_name", queryDB.select("category", "item_description", element, "temp_items"), "item_library");
+                MessageBox.Show("Put the Customer Name!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            queryDB.query("delete from temp_items");
-            queryDB.cmd.ExecuteNonQuery();
-            dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
-            MessageBox.Show("Order Performed!");
+            else if (double.Parse(txt_change.Text) < 0 || txt_amountPay == null || txt_totalPrice.Text == null)
+            {
+                MessageBox.Show("Insufficient Amount!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                int index = 0;
+                foreach (String element in queryDB.selectMultiple("item_description", "temp_items"))
+                {
+                    int temp_amount = int.Parse(queryDB.select("item_amount", "item_name", queryDB.select("category", "item_description", element, "temp_items"), "item_library"));
+                    temp_amount = temp_amount - int.Parse(queryDB.select("qty", "item_description", element, "temp_items"));
+
+                    queryDB.update(temp_amount.ToString(), "item_amount", "item_name", queryDB.select("category", "item_description", element, "temp_items"), "item_library");
+                }
+
+                queryDB.query("delete from temp_items");
+                queryDB.cmd.ExecuteNonQuery();
+                dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
+                MessageBox.Show("Order Performed!");
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -137,6 +151,10 @@ namespace CafeSystem
 
         private void _process(object sender, EventArgs e)
         {
+            if (queryDB.select("item_amount", "item_name", itemCat.Text, "item_library") != "null")
+            {
+                txt_qty.Maximum = int.Parse(queryDB.select("item_amount", "item_name", itemCat.Text, "item_library"));
+            }
             Button[] buttonsname =
             {
                 item_btn1,
@@ -221,7 +239,7 @@ namespace CafeSystem
                 itemVar.Items.Add(i);
             }
 
-            txt_qty.Maximum = int.Parse( queryDB.select("item_amount", "item_name", itemCat.Text, "item_library"));
+            
 
         }
 
@@ -318,6 +336,68 @@ namespace CafeSystem
             queryDB.query("delete from temp_items where item_description = '" + desc_bar.Text + "'");
             queryDB.cmd.ExecuteNonQuery();
             dataGridView1.DataSource = queryDB.selectTable("select * from temp_items");
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_20_Click(object sender, EventArgs e)
+        {
+            amountPaying = 20;
+            txt_amountPay.Text = amountPaying.ToString();
+        }
+
+        private void btn_50_Click(object sender, EventArgs e)
+        {
+            amountPaying = 50;
+            txt_amountPay.Text = amountPaying.ToString();
+        }
+
+        private void btn_100_Click(object sender, EventArgs e)
+        {
+            amountPaying = 100;
+            txt_amountPay.Text = amountPaying.ToString();
+        }
+
+        private void btn_200_Click(object sender, EventArgs e)
+        {
+            amountPaying = 200;
+            txt_amountPay.Text = amountPaying.ToString();
+        }
+
+        private void btn_500_Click(object sender, EventArgs e)
+        {
+            amountPaying = 500;
+            txt_amountPay.Text = amountPaying.ToString();
+        }
+
+        private void btn_1000_Click(object sender, EventArgs e)
+        {
+            amountPaying = 1000;
+            txt_amountPay.Text = amountPaying.ToString();
+        }
+
+        private void btn_clearAmount_Click(object sender, EventArgs e)
+        {
+            amountPaying = 0;
+            txt_amountPay.Text = amountPaying.ToString();
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_change_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txt_amountPay_TextChanged(object sender, EventArgs e)
+        {
+            changeTotal = double.Parse(txt_amountPay.Text) - double.Parse(txt_totalPrice.Text);
+            txt_change.Text = changeTotal.ToString();
         }
     }
 }

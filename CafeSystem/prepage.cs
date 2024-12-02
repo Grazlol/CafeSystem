@@ -24,7 +24,15 @@ namespace CafeSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            global_variables.nextWindow(new signup());
+            
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to Close the System?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

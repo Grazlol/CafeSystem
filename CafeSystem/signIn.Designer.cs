@@ -34,12 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.emBox = new System.Windows.Forms.TextBox();
             this.button19 = new System.Windows.Forms.Button();
+            this.btn_showpass = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel6.Controls.Add(this.btn_showpass);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.pwBox);
             this.panel6.Controls.Add(this.label1);
@@ -68,6 +70,7 @@
             this.pwBox.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwBox.Location = new System.Drawing.Point(118, 111);
             this.pwBox.Name = "pwBox";
+            this.pwBox.PasswordChar = '*';
             this.pwBox.Size = new System.Drawing.Size(528, 35);
             this.pwBox.TabIndex = 23;
             this.pwBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -105,6 +108,17 @@
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
+            // btn_showpass
+            // 
+            this.btn_showpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_showpass.Location = new System.Drawing.Point(609, 111);
+            this.btn_showpass.Name = "btn_showpass";
+            this.btn_showpass.Size = new System.Drawing.Size(37, 35);
+            this.btn_showpass.TabIndex = 25;
+            this.btn_showpass.Text = "👁️";
+            this.btn_showpass.UseVisualStyleBackColor = true;
+            this.btn_showpass.Click += new System.EventHandler(this.btn_showpass_Click);
+            // 
             // signIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,5 +143,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox emBox;
         private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button btn_showpass;
     }
 }

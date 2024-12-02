@@ -30,271 +30,98 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.cafepersistentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerhistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dateentryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemcodesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.changeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customernoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.employeeaccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mobilenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemlibraryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemsubtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemvariantsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemsubpricesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cafepersistentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafepersistentDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerhistoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeaccountsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemlibraryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cafepersistentDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dateentryDataGridViewTextBoxColumn,
-            this.itemcodesDataGridViewTextBoxColumn,
-            this.totalDataGridViewTextBoxColumn,
-            this.paidDataGridViewTextBoxColumn,
-            this.changeDataGridViewTextBoxColumn,
-            this.customernameDataGridViewTextBoxColumn,
-            this.customernoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.customerhistoryBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(-4, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(538, 50);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(331, 469);
+            this.dataGridView1.Size = new System.Drawing.Size(550, 455);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn,
-            this.mobilenumberDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.positionDataGridViewTextBoxColumn,
-            this.bdayDataGridViewTextBoxColumn,
-            this.genderDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.employeeaccountsBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(333, 32);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 50);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(481, 469);
+            this.dataGridView2.Size = new System.Drawing.Size(511, 455);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.itemnameDataGridViewTextBoxColumn1,
-            this.itemsubtypeDataGridViewTextBoxColumn,
-            this.itemvariantsDataGridViewTextBoxColumn,
-            this.itemsubpricesDataGridViewTextBoxColumn});
-            this.dataGridView4.DataSource = this.itemlibraryBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(820, 32);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(279, 469);
-            this.dataGridView4.TabIndex = 3;
-            // 
-            // cafe_persistentDataSet
-            // 
-
-            // 
-            // cafepersistentDataSetBindingSource
-            // 
-            this.cafepersistentDataSetBindingSource.Position = 0;
-            // 
-            // cafe_persistentDataSet2
-            // 
-   
-            // 
-            // customerhistoryBindingSource
-            // 
-
-            // 
-            // customer_historyTableAdapter
-            // 
-
-            // 
-            // dateentryDataGridViewTextBoxColumn
-            // 
-            this.dateentryDataGridViewTextBoxColumn.DataPropertyName = "date_entry";
-            this.dateentryDataGridViewTextBoxColumn.HeaderText = "date_entry";
-            this.dateentryDataGridViewTextBoxColumn.Name = "dateentryDataGridViewTextBoxColumn";
-            // 
-            // itemcodesDataGridViewTextBoxColumn
-            // 
-            this.itemcodesDataGridViewTextBoxColumn.DataPropertyName = "item_codes";
-            this.itemcodesDataGridViewTextBoxColumn.HeaderText = "item_codes";
-            this.itemcodesDataGridViewTextBoxColumn.Name = "itemcodesDataGridViewTextBoxColumn";
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            // 
-            // paidDataGridViewTextBoxColumn
-            // 
-            this.paidDataGridViewTextBoxColumn.DataPropertyName = "paid";
-            this.paidDataGridViewTextBoxColumn.HeaderText = "paid";
-            this.paidDataGridViewTextBoxColumn.Name = "paidDataGridViewTextBoxColumn";
-            // 
-            // changeDataGridViewTextBoxColumn
-            // 
-            this.changeDataGridViewTextBoxColumn.DataPropertyName = "change";
-            this.changeDataGridViewTextBoxColumn.HeaderText = "change";
-            this.changeDataGridViewTextBoxColumn.Name = "changeDataGridViewTextBoxColumn";
-            // 
-            // customernameDataGridViewTextBoxColumn
-            // 
-            this.customernameDataGridViewTextBoxColumn.DataPropertyName = "customer_name";
-            this.customernameDataGridViewTextBoxColumn.HeaderText = "customer_name";
-            this.customernameDataGridViewTextBoxColumn.Name = "customernameDataGridViewTextBoxColumn";
-            // 
-            // customernoDataGridViewTextBoxColumn
-            // 
-            this.customernoDataGridViewTextBoxColumn.DataPropertyName = "customer_no";
-            this.customernoDataGridViewTextBoxColumn.HeaderText = "customer_no";
-            this.customernoDataGridViewTextBoxColumn.Name = "customernoDataGridViewTextBoxColumn";
             // 
             // employeeaccountsBindingSource
             // 
             this.employeeaccountsBindingSource.DataMember = "employee_accounts";
             // 
-            // employee_accountsTableAdapter
+            // itemlibraryBindingSource
             // 
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            // 
-            // mobilenumberDataGridViewTextBoxColumn
-            // 
-            this.mobilenumberDataGridViewTextBoxColumn.DataPropertyName = "mobilenumber";
-            this.mobilenumberDataGridViewTextBoxColumn.HeaderText = "mobilenumber";
-            this.mobilenumberDataGridViewTextBoxColumn.Name = "mobilenumberDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            this.positionDataGridViewTextBoxColumn.DataPropertyName = "position";
-            this.positionDataGridViewTextBoxColumn.HeaderText = "position";
-            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
-            // 
-            // bdayDataGridViewTextBoxColumn
-            // 
-            this.bdayDataGridViewTextBoxColumn.DataPropertyName = "bday";
-            this.bdayDataGridViewTextBoxColumn.HeaderText = "bday";
-            this.bdayDataGridViewTextBoxColumn.Name = "bdayDataGridViewTextBoxColumn";
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.itemlibraryBindingSource.DataMember = "item_library";
             // 
             // inventoryBindingSource
             // 
             this.inventoryBindingSource.DataMember = "inventory";
             // 
-            // inventoryTableAdapter
+            // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.ForestGreen;
+            this.button1.Location = new System.Drawing.Point(12, 511);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(217, 34);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "CREATE A NEW ACCOUNT";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // itemlibraryBindingSource
+            // label3
             // 
-            this.itemlibraryBindingSource.DataMember = "item_library";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cambria", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(6, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 34);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Accounts";
             // 
-            // item_libraryTableAdapter
+            // label1
             // 
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // itemnameDataGridViewTextBoxColumn1
-            // 
-            this.itemnameDataGridViewTextBoxColumn1.DataPropertyName = "item_name";
-            this.itemnameDataGridViewTextBoxColumn1.HeaderText = "item_name";
-            this.itemnameDataGridViewTextBoxColumn1.Name = "itemnameDataGridViewTextBoxColumn1";
-            // 
-            // itemsubtypeDataGridViewTextBoxColumn
-            // 
-            this.itemsubtypeDataGridViewTextBoxColumn.DataPropertyName = "item_subtype";
-            this.itemsubtypeDataGridViewTextBoxColumn.HeaderText = "item_subtype";
-            this.itemsubtypeDataGridViewTextBoxColumn.Name = "itemsubtypeDataGridViewTextBoxColumn";
-            // 
-            // itemvariantsDataGridViewTextBoxColumn
-            // 
-            this.itemvariantsDataGridViewTextBoxColumn.DataPropertyName = "item_variants";
-            this.itemvariantsDataGridViewTextBoxColumn.HeaderText = "item_variants";
-            this.itemvariantsDataGridViewTextBoxColumn.Name = "itemvariantsDataGridViewTextBoxColumn";
-            // 
-            // itemsubpricesDataGridViewTextBoxColumn
-            // 
-            this.itemsubpricesDataGridViewTextBoxColumn.DataPropertyName = "item_subprices";
-            this.itemsubpricesDataGridViewTextBoxColumn.HeaderText = "item_subprices";
-            this.itemsubpricesDataGridViewTextBoxColumn.Name = "itemsubpricesDataGridViewTextBoxColumn";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cambria", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(532, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(249, 34);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Customer History";
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 557);
-            this.Controls.Add(this.dataGridView4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -303,14 +130,14 @@
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafepersistentDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerhistoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeaccountsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemlibraryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cafepersistentDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -318,7 +145,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.BindingSource cafepersistentDataSetBindingSource;
         private System.Windows.Forms.BindingSource customerhistoryBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateentryDataGridViewTextBoxColumn;
@@ -345,5 +171,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemsubtypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemvariantsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemsubpricesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }

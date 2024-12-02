@@ -28,7 +28,7 @@ namespace CafeSystem
         public static String employee_position = "";
         public static String current_user_id = "";
         public static Form homepage = new prepage();
-
+        public static String str_checkedIn = "";
 
         public static Form[] Previous = new Form[0];
         static Form currentform = null;
@@ -81,7 +81,7 @@ namespace CafeSystem
     public static class queryDB
     {
         //PUT THE CONNECTOR PORT HERE AS A BY RIGHT CLICKING THE DATABASE AND TAKE THE DATAPORT FORM THE PROPERITES
-        static string database_properties = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Spatz\\source\\repos\\CafeSystem\\CafeSystem\\cafe_persistent.mdf;Integrated Security=True";
+        static string database_properties = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Archille\\source\\repos\\Grazlol\\CafeSystem\\CafeSystem\\cafe_persistent.mdf;Integrated Security=True";
         //PLS DO THIS OR ELSE PROGRAM WILL FAIL TO RUN DUMB SKIBIDI GYATT
 
 

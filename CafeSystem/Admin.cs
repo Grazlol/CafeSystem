@@ -23,5 +23,10 @@ namespace CafeSystem
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            global_variables.nextWindow(new signup());
+        }
     }
 }

@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CafeSystem
 {
@@ -44,8 +46,11 @@ namespace CafeSystem
             if(queryDB.select("password","email",emBox.Text,"employee_accounts") == pwBox.Text)
             {
                 logged_in = true;
+                global_variables.str_checkedIn = DateTime.Now.ToString();
+                
             }
 
+            else { MessageBox.Show("Incorrect Email or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
                 if (logged_in) {
                 global_variables.employee_position = queryDB.select("position", "email", emBox.Text, "employee_accounts");
@@ -55,7 +60,15 @@ namespace CafeSystem
                 global_variables.Previous = new Form[0];
                 
             }
-            
+
+ 
+        }
+
+        private void btn_showpass_Click(object sender, EventArgs e)
+        {
+            if (pwBox.PasswordChar != '\0') { pwBox.PasswordChar = '\0';}
+
+            else { pwBox.PasswordChar = '*'; }
         }
     }
 }
