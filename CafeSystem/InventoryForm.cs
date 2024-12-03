@@ -12,7 +12,7 @@ namespace CafeSystem
 {
     public partial class InventoryForm : Form
     {
-        string selectQuery = "select id,item_name,item_amount,item_subtype from item_library;";
+        string selectQuery = "select * from inventory;";
         public InventoryForm()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace CafeSystem
         private void InventoryForm_Load(object sender, EventArgs e)
         {
             
-            foreach (String i in queryDB.selectMultiple("item_name", "item_library"))
+            foreach (String i in queryDB.selectMultiple("item_name", "inventory"))
             {
                 comboBox1.Items.Add(i);
             }
@@ -40,11 +40,11 @@ namespace CafeSystem
 
         private void button19_Click(object sender, EventArgs e)
         {
-            int tempamount = int.Parse( queryDB.select("item_amount", "item_name", comboBox1.Text, "item_library"));
+            int tempamount = int.Parse( queryDB.select("item_amount", "item_name", comboBox1.Text, "inventory"));
             tempamount = tempamount + int.Parse(numericUpDown1.Value.ToString());
 
-            queryDB.update(tempamount.ToString(), "item_amount", "item_name",comboBox1.Text, "item_library");
-            selectQuery = "select id,item_name,item_amount,item_subtype from item_library;";
+            queryDB.update(tempamount.ToString(), "item_amount", "item_name",comboBox1.Text, "inventory");
+            selectQuery = "select * from inventory;";
         }
 
         private void _process(object sender, EventArgs e)

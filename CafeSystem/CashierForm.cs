@@ -153,7 +153,7 @@ namespace CafeSystem
         {
             if (queryDB.select("item_amount", "item_name", itemCat.Text, "item_library") != "null")
             {
-                txt_qty.Maximum = int.Parse(queryDB.select("item_amount", "item_name", itemCat.Text, "item_library"));
+                //txt_qty.Maximum = int.Parse(queryDB.select("item_amount", "item_name", itemCat.Text, "item_library"));
             }
             Button[] buttonsname =
             {
@@ -180,9 +180,9 @@ namespace CafeSystem
             int index = 0;
             foreach (Button button in buttonsname)
             {
-                if(index < queryDB.select("item_subtype", "item_name", itemCat.Text, "item_library").Split(',').Length)
+                if(true)//index < queryDB.select("item_subtype", "item_name", itemCat.Text, "item_library").Split(',').Length)
                 {
-                    button.Text = queryDB.select("item_subtype", "item_name", itemCat.Text, "item_library").Split(',')[index];
+                    //button.Text = queryDB.select("item_subtype", "item_name", itemCat.Text, "item_library").Split(',')[index];
                     button.Visible = true;
                 } else
                 {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CafeSystem
@@ -80,20 +80,27 @@ namespace CafeSystem
 
     public static class queryDB
     {
-        //PUT THE CONNECTOR PORT HERE AS A BY RIGHT CLICKING THE DATABASE AND TAKE THE DATAPORT FORM THE PROPERITES
-        static string database_properties = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Archille\\source\\repos\\Grazlol\\CafeSystem\\CafeSystem\\cafe_persistent.mdf;Integrated Security=True";
+   //PUT THE CONNECTOR PORT HERE AS A BY RIGHT CLICKING THE DATABASE AND TAKE THE DATAPORT FORM THE PROPERITES
+        static string database_properties = "Data Source=localhost; user id='root'; Initial Catalog='cafe_persistent'";
         //PLS DO THIS OR ELSE PROGRAM WILL FAIL TO RUN DUMB SKIBIDI GYATT
 
-
-
-        public static SqlCommand cmd;//DONT TOUCH THIS BTW
+        public static MySqlCommand cmd = new MySqlCommand();//DONT TOUCH THIS BTW
         public static string Last_Created_ID = "";
-        static SqlConnection con = new SqlConnection(database_properties);
+        static MySqlConnection con = new MySqlConnection(database_properties);
+        static bool isConnectionOpened = false;
         public static void query(string SQLCOMMAND)//Performs a commmand through a string
         {
-            con.Close();
+
+            if (isConnectionOpened)
+            {
+                con.Close();
+            }
             con.Open();
-            cmd = new SqlCommand(SQLCOMMAND, con);
+            isConnectionOpened = true;
+            cmd.CommandText = SQLCOMMAND;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+
         }
 
         public static void update(string New_Value, string Column, string RowIdentifier, string Row, string Table)//changes a specified field in a specified row 
@@ -112,11 +119,11 @@ namespace CafeSystem
             try
             {
                 query("SELECT " + Column + " from " + Table + " where " + RowIdentifier + " = '" + Row + "'");
-                SqlDataReader table_scanner = cmd.ExecuteReader();
+                MySqlDataReader table_scanner = cmd.ExecuteReader();
                 table_scanner.Read();
                 return table_scanner.GetValue(0).ToString();
             }
-            catch (Exception e) { return "null"; }   //DOES NOTHING IF THE SPECIFIED  FIELDS DO NOT EXIST AT ALL.
+            catch (Exception e) { return null; }   //DOES NOTHING IF THE SPECIFIED  FIELDS DO NOT EXIST AT ALL.
 
         }
 
@@ -125,7 +132,7 @@ namespace CafeSystem
             String[] templar = new String[0];
             int index = 0;
             query("SELECT " + Column + " From " + Table);
-            SqlDataReader table_scanner = cmd.ExecuteReader();
+            MySqlDataReader table_scanner = cmd.ExecuteReader();
             string storedString = "";
             while (true)
             {
@@ -154,7 +161,7 @@ namespace CafeSystem
                 try
                 {
                     query("SELECT " + PrimaryKeyName + " From " + Table + " where " + PrimaryKeyName + " = " + IDNumber);
-                    SqlDataReader table_scanner = cmd.ExecuteReader();
+                    MySqlDataReader table_scanner = cmd.ExecuteReader();
                     table_scanner.Read();
                     Console.WriteLine(table_scanner.GetValue(0).ToString());
 
@@ -174,10 +181,11 @@ namespace CafeSystem
         public static DataTable selectTable(string Query)
         {
             query(Query);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             return dt;
+
         }
     }
 }
